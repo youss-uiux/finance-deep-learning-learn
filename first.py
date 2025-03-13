@@ -1,4 +1,5 @@
 import pandas_datareader as pdr
+import matplotlib.pyplot as plt
 start_date = '1950-01-01'
 end_date = '2023-01-23'
 cpi = pdr.DataReader('CPIAUCSL', 'fred', start_date, end_date)
@@ -9,3 +10,18 @@ print('Number of nan values in the CPI dataframe: ' + str(count_nan))
 cpi = cpi.pct_change(periods = 12, axis = 0) * 100
 # Dropping the nan values from the rows
 cpi = cpi.dropna()
+# Calculating the mean of the CPI over the last 20 years
+cpi_latest = cpi.iloc[-240:]
+mean = cpi_latest["CPIAUCSL"].mean()
+# Printing the result
+print('The mean of the dataset: ' + str(mean), '%')
+# Plotting the latest observations in black with a label
+plt.plot(cpi_latest[:], color = 'black', linewidth = 1.5,
+label = 'Change in CPI Year-on-Year')
+# Plotting horizontal lines that represent the mean and the zero threshold
+plt.axhline(y = mean, color = 'red', linestyle = 'dashed',
+label = 'Mean')
+plt.axhline(y = 0, color = 'blue', linestyle = 'dashed', linewidth = 1)
+plt.grid()
+plt.legend()
+plt.show()  
