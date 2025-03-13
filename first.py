@@ -24,4 +24,13 @@ label = 'Mean')
 plt.axhline(y = 0, color = 'blue', linestyle = 'dashed', linewidth = 1)
 plt.grid()
 plt.legend()
-plt.show()  
+# Calculating the variance
+variance = cpi_latest["CPIAUCSL"].var()
+# Printing the result
+print('The variance of the dataset: ' + str(variance), '%')
+# Calculating the standard deviation
+standard_deviation = cpi_latest["CPIAUCSL"].std()
+# Printing the result
+print('The standard deviation of the dataset: ' +
+str(standard_deviation), '%')
+#plt.show()  
