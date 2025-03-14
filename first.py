@@ -40,4 +40,18 @@ print('The range of the dataset: ' + str(range_metric), '%')
 skew = cpi_latest["CPIAUCSL"].skew()
 # Printing the result
 print('The skew of the dataset: ' + str(skew))
+# Plotting the histogram of the data
+fig, ax = plt.subplots()
+ax.hist(cpi['CPIAUCSL'], bins = 30, edgecolor = 'black', color = 'white')
+median = cpi_latest["CPIAUCSL"].median()
+# Printing the result
+print('The median of the dataset: ' + str(median), '%')
+# Plotting the latest observations in black with a label
+# Add vertical lines for better interpretation
+ax.axvline(mean, color='black', linestyle='--', label = 'Mean',linewidth = 2)
+ax.axvline(median, color='grey', linestyle='-.', label = 'Median',
+linewidth = 2)
+plt.grid()
+plt.legend()
+plt.show()
 #plt.show()  
