@@ -36,4 +36,8 @@ print('The standard deviation of the dataset: ' +str(standard_deviation), '%')
 range_metric = max(cpi["CPIAUCSL"]) - min(cpi["CPIAUCSL"])
 # Printing the result
 print('The range of the dataset: ' + str(range_metric), '%')
+# Calculating the skew
+skew = cpi_latest["CPIAUCSL"].skew()
+# Printing the result
+print('The skew of the dataset: ' + str(skew))
 #plt.show()  
