@@ -31,8 +31,7 @@ print('The variance of the dataset: ' + str(variance), '%')
 # Calculating the standard deviation
 standard_deviation = cpi_latest["CPIAUCSL"].std()
 # Printing the result
-print('The standard deviation of the dataset: ' +
-str(standard_deviation), '%')
+print('The standard deviation of the dataset: ' +str(standard_deviation), '%')
 # Calculating the range
 range_metric = max(cpi["CPIAUCSL"]) - min(cpi["CPIAUCSL"])
 # Printing the result
